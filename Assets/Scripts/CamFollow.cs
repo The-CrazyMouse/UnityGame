@@ -9,8 +9,6 @@ public class CamFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Debug.Log(playerTransform.position);
-
         transform.position = playerTransform.position + offset;
     }
 }

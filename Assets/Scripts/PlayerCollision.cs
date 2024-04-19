@@ -15,10 +15,7 @@ public class PlayerCollision : MonoBehaviour
             if (collision.gameObject.CompareTag("Enemy"))
             {
                     movement.enabled = false;
-                    Destroy(gun.bulletSpwanPoint);
                     FindObjectOfType<GameManager>().GameOver();
             }
-            
-            
     }
 }

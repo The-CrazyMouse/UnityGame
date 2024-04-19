@@ -133,16 +133,10 @@ public class WaveSpawner : MonoBehaviour {
 
 		Vector3 randomSpawnPosition = new Vector3(Random.Range(-48, 48), 6, -100);
 		Transform enemy = Instantiate(_enemy, randomSpawnPosition, Quaternion.identity);
+		
 		double force = enemy.GetComponent<Asteroidforce>().getForce();
 		double newforce = force + (0.1 * nextWave);
 		enemy.GetComponent<Asteroidforce>().setForce(force + (0.5 * nextWave));
-		//double velo = 100 * (1 + (0.1 * nextWave));
-		//Rigidbody rb = enemy.GetComponent<Rigidbody>();
-		//Vector3 newVelocity = rb.velocity * (float)velo;
-
-		// Assign the new velocity to the Rigidbody
-		//rb.velocity = newVelocity;
-
 	}
 
 }
