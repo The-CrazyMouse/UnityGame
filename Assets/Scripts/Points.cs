@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Points : MonoBehaviour
 {
     public int score = 0;
+    public TMP_Text scoreText;
 
     public void AddPoint()
     {
@@ -17,5 +19,10 @@ public class Points : MonoBehaviour
     {
         score--;
         Debug.Log("score: " + score);
+    }
+
+    private void Update()
+    {
+        scoreText.text = score.ToString("0");
     }
 }

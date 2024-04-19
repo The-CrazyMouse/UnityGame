@@ -7,7 +7,7 @@ public class Asteroidforce : MonoBehaviour
     private Rigidbody rb;
     public float forwardforce; 
     public float countdown = 99999f;
-    public Points points;
+    private Points points;
 
     public float rotationSpeed;
     // Start is called before the first frame update
@@ -28,8 +28,9 @@ public class Asteroidforce : MonoBehaviour
     {
         if (gameObject.transform.position.z > 180)
         {
+            GameObject points = GameObject.Find("ScoreOnScreen");
+            points.GetComponent<Points>().LosePoint();
             Destroy(gameObject);
-            points.LosePoint();
         }
 
     }

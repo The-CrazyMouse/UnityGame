@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
     //public float life = 3;
     public AudioSource source;
-    public Points points;
+    private Points points;
 
     private void Start()
     {
@@ -24,8 +24,9 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        GameObject points = GameObject.Find("ScoreOnScreen");
+        points.GetComponent<Points>().AddPoint();
         Destroy(collision.gameObject);
         Destroy(gameObject);
-        points.AddPoint();
     }
 }
