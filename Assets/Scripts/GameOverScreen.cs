@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class GameOverScreen : MonoBehaviour
 {
     public Text scoreText;
 
-    public void Setup(int score)
-    {
+    public void Setup()
+    {  
+        GameObject points = GameObject.Find("ScoreOnScreen");
+        int score = points.GetComponent<Points>().getScore();
         gameObject.SetActive(true);
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Score: " + score;
     }
     public void RestartButton()
     {

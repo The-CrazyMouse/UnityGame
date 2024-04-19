@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Asteroidforce : MonoBehaviour
 {
     private Rigidbody rb;
-    public float forwardforce; 
+    public double forwardforce; 
     public float countdown = 99999f;
     private Points points;
 
@@ -20,7 +21,7 @@ public class Asteroidforce : MonoBehaviour
     void FixedUpdate()
     {
         // Apply force along the z-axis in the forward direction
-        rb.AddForce(0, 0, forwardforce * Time.deltaTime, ForceMode.VelocityChange);
+        rb.AddForce(0, 0, (float)(forwardforce * Time.deltaTime), ForceMode.VelocityChange);
         transform.Rotate(Vector3.left, rotationSpeed * Time.deltaTime);
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     } 
@@ -33,5 +34,15 @@ public class Asteroidforce : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    public double getForce()
+    {
+        return forwardforce;
+    }
+
+    public void setForce(double force)
+    {
+        this.forwardforce = force;
     }
 } 

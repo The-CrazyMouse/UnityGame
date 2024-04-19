@@ -21,8 +21,13 @@ public class Points : MonoBehaviour
         Debug.Log("score: " + score);
     }
 
+    public int getScore()
+    {
+        return score;
+    }
     private void Update()
     {
         scoreText.text = score.ToString("0");
+        
     }
 }
